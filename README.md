@@ -29,26 +29,23 @@ Built by reading directly from the Linux **`/proc`** and **`/sys`** virtual file
 </p>
 
 --- 
-## 📑 Table of Contents
 
-- [About](#-about)
-- [Features](#-features)
-- [Architecture](#-architecture)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Installation](#-installation)
-- [Running the Application](#-running-the-application)
-- [REST API](#-rest-api)
-- [Learning Outcomes](#-learning-outcomes)
-- [Future Improvements](#-future-improvements)
-- [License](#-license)
-- [Author](#-author) 
- ---
 
 <p align="center">
   <em>A modern Linux system monitoring dashboard providing live CPU, memory, disk, network, and process statistics.</em>
 </p>
 <p align="center">
+
+--- 
+## 👨‍💻 Author
+
+**Prashast Mathur**
+
+Computer Science Engineering Student  
+IIIT Bhopal
+
+If you found this project interesting, feel free to star the repository or connect with me.
+--- 
 ## 📖 About
 
 **SysWatch** is a lightweight web-based Linux system monitoring dashboard designed to provide real-time insights into system performance through an intuitive and responsive interface. The project was built to explore how Linux exposes system information through its virtual filesystems while creating a practical monitoring tool from the ground up.
@@ -264,13 +261,4 @@ Some features planned for future versions include:
 This project is licensed under the MIT License.
 
 See the `LICENSE` file for more information.
----
-## 👨‍💻 Author
-
-**Prashast Mathur**
-
-Computer Science Engineering Student  
-IIIT Bhopal
-
-If you found this project interesting, feel free to star the repository or connect with me.
 ---
