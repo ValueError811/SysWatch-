@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="SysWatch Logo" width="180"/>
+<img src="assets/logo.png" alt="SysWatch Logo" width="220"/>
 
 # SysWatch
 
@@ -21,7 +21,15 @@ Built by reading directly from the Linux **`/proc`** and **`/sys`** virtual file
 </div>
 
 ---
+## 📖 About
 
+**SysWatch** is a lightweight web-based Linux system monitoring dashboard designed to provide real-time insights into system performance through an intuitive and responsive interface. The project was built to explore how Linux exposes system information through its virtual filesystems while creating a practical monitoring tool from the ground up.
+
+Unlike many system monitoring applications that rely on high-level libraries such as **`psutil`**, SysWatch reads system metrics directly from the Linux **`/proc`** and **`/sys`** virtual filesystems. This approach provides a deeper understanding of Linux internals and demonstrates how the operating system exposes information about the CPU, memory, storage, network interfaces, running processes, and other system resources.
+
+The backend is built with **Flask** and follows a modular architecture where dedicated Python modules collect different categories of system metrics. These metrics are aggregated through a central manager and exposed via a REST API. The frontend periodically retrieves this data using JavaScript's Fetch API and visualizes it through interactive charts, system cards, and a live process table.
+
+SysWatch was developed as a systems programming project to strengthen my understanding of Linux internals, backend development, and full-stack application design while building a practical tool that showcases direct interaction with the operating system.
 <p align="center">
   <img src="assets/dashboard.png" alt="SysWatch Dashboard">
 </p>
