@@ -173,7 +173,7 @@ Before running SysWatch, ensure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/syswatch.git
+git clone https://github.com/ValueError811/SysWatch.git
 
 cd syswatch
 ```
