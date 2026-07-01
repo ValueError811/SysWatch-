@@ -22,9 +22,28 @@ Built by reading directly from the Linux **`/proc`** and **`/sys`** virtual file
 
 ---
 
+
+
 <p align="center">
   <img src="assets/dashboard.png" alt="SysWatch Dashboard">
 </p>
+
+--- 
+## 📑 Table of Contents
+
+- [About](#-about)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Running the Application](#-running-the-application)
+- [REST API](#-rest-api)
+- [Learning Outcomes](#-learning-outcomes)
+- [Future Improvements](#-future-improvements)
+- [License](#-license)
+- [Author](#-author) 
+ ---
 
 <p align="center">
   <em>A modern Linux system monitoring dashboard providing live CPU, memory, disk, network, and process statistics.</em>
@@ -143,3 +162,115 @@ SysWatch/
 │
 └── README.md
 ```
+--- 
+## 🚀 Installation
+
+### Prerequisites
+
+Before running SysWatch, ensure you have the following installed:
+
+- Python 3.10 or later
+- Git
+- A Linux-based operating system
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/syswatch.git
+
+cd syswatch
+```
+
+### Create a Virtual Environment
+
+```bash
+python3 -m venv venv
+```
+
+### Activate the Virtual Environment
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+--- 
+## ▶️ Running the Application
+
+Start the Flask development server:
+
+```bash
+python app.py
+```
+
+Open your browser and navigate to:
+
+```text
+http://127.0.0.1:5000
+```
+
+The dashboard will begin displaying live system metrics retrieved directly from the Linux `/proc` and `/sys` virtual filesystems.
+
+--- 
+
+## 🔌 REST API
+
+The frontend communicates with the Flask backend through the following endpoint.
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/system` | Returns the latest system metrics in JSON format. |
+
+---
+
+## 📚 Learning Outcomes
+
+Building SysWatch helped me gain hands-on experience with:
+
+- Linux virtual filesystems (`/proc` and `/sys`)
+- Systems programming concepts
+- REST API development using Flask
+- Modular Python application design
+- Frontend and backend integration
+- Real-time data visualization with Chart.js
+- Parsing kernel-provided system information
+- Organizing and documenting a full-stack project
+
+---
+
+## 🚀 Future Improvements
+
+Some features planned for future versions include:
+
+- GPU monitoring
+- Temperature sensor support
+- Historical performance graphs
+- Docker deployment
+- Export metrics to CSV/JSON
+- Multiple dashboard themes
+- Process management
+- User authentication
+- Alert and notification system
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+See the `LICENSE` file for more information.
+---
+## 👨‍💻 Author
+
+**Prashast Mathur**
+
+Computer Science Engineering Student  
+IIIT Bhopal
+
+If you found this project interesting, feel free to star the repository or connect with me.
+---
