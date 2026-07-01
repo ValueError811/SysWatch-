@@ -89,3 +89,57 @@ SysWatch follows a modular client-server architecture where the frontend communi
 3. The central `manager.py` coordinates all metric collection modules.
 4. Individual modules gather CPU, memory, disk, network, process, and system information directly from the Linux kernel interfaces.
 5. The collected data is returned as JSON and rendered dynamically using JavaScript and Chart.js.
+---
+## 🛠️ Tech Stack
+
+<p align="center">
+    <img src="assets/tech_stack.png" alt="SysWatch Tech Stack" width="95%">
+</p>
+
+| Category | Technologies |
+|-----------|--------------|
+| **Backend** | Python, Flask |
+| **Frontend** | HTML5, CSS3, JavaScript |
+| **Visualization** | Chart.js |
+| **Operating System** | Linux |
+| **Data Sources** | `/proc`, `/sys` |
+| **Version Control** | Git, GitHub |
+---
+## 📂 Project Structure
+
+<p align="center">
+    <img src="assets/project_structure.png" alt="SysWatch Project Structure" width="95%">
+</p>
+
+```text
+SysWatch/
+├── app.py                  # Flask application entry point
+├── manager.py              # Aggregates all system metrics
+├── requirements.txt        # Project dependencies
+│
+├── metrices/
+│   ├── cpu.py              # CPU metrics
+│   ├── memory.py           # Memory metrics
+│   ├── disk.py             # Disk usage metrics
+│   ├── network.py          # Network statistics
+│   ├── processes.py        # Running process information
+│   └── system.py           # System information
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js
+│
+├── templates/
+│   └── index.html
+│
+├── assets/
+│   ├── logo.png
+│   ├── dashboard.png
+│   ├── architecture.png
+│   ├── tech_stack.png
+│   └── project_structure.png
+│
+└── README.md
+```
