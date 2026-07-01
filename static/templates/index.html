@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SysWatch</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <div class="logo">
+
+                <h1>
+                    <i class="fa-solid fa-chart-line"></i>
+                    SysWatch
+                </h1>
+
+                <p>Linux System Monitor</p>
+
+            </div>
+
+            <div class="system-info">
+
+                <div class="info-box">
+                    <span class="label">Hostname</span>
+                    <span id="hostname">Loading...</span>
+                </div>
+
+                <div class="info-box">
+                    <span class="label">OS</span>
+                    <span id="os-name">Loading...</span>
+                </div>
+
+                <div class="info-box">
+                    <span class="label">Kernel</span>
+                    <span id="kernel-version">Loading...</span>
+                </div>
+
+                <div class="info-box">
+                    <span class="label">Uptime</span>
+                    <span id="uptime">Loading...</span>
+                </div>
+
+            </div>
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                <span id="system-status">
+                    System Online
+                </span>
+
+            </div>
+
+        </header>
+
+        <!-- ================= MAIN ================= -->
+
+        <main>
+
+            <!-- ================= SUMMARY CARDS ================= -->
+
+            <section class="cards">
+
+                <!-- CPU -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <i class="fa-solid fa-microchip"></i>
+
+                        <h3>CPU</h3>
+
+                    </div>
+
+                    <div class="big-number" id="cpu-percent">
+                        0%
+                    </div>
+
+                    <div class="card-details">
+
+                        <span>
+                            Cores:
+                            <strong id="cpu-cores">0</strong>
+                        </span>
+
+                        <span>
+                            Threads:
+                            <strong id="cpu-threads">0</strong>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- Memory -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <i class="fa-solid fa-memory"></i>
+
+                        <h3>Memory</h3>
+
+                    </div>
+
+                    <div class="big-number" id="memory-percent">
+                        0%
+                    </div>
+
+                    <div class="card-details">
+
+                        <span id="memory-used">0 GB</span>
+
+                        <span>/</span>
+
+                        <span id="memory-total">0 GB</span>
+
+                    </div>
+
+                </div>
+
+                <!-- Disk -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <i class="fa-solid fa-hard-drive"></i>
+
+                        <h3>Disk</h3>
+
+                    </div>
+
+                    <div class="big-number" id="disk-percent">
+                        0%
+                    </div>
+
+                    <div class="card-details">
+
+                        <span id="disk-used">0 GB</span>
+
+                        <span>/</span>
+
+                        <span id="disk-total">0 GB</span>
+
+                    </div>
+
+                </div>
+
+                <!-- Network -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <i class="fa-solid fa-network-wired"></i>
+
+                        <h3>Network</h3>
+
+                    </div>
+
+                    <div class="network-speed">
+
+                        <p>
+
+                            <span>
+
+                                <i class="fa-solid fa-arrow-up"></i>
+
+                                Upload
+
+                            </span>
+
+                            <span id="upload-speed">
+
+                                0 KB/s
+
+                            </span>
+
+                        </p>
+
+                        <p>
+
+                            <span>
+
+                                <i class="fa-solid fa-arrow-down"></i>
+
+                                Download
+
+                            </span>
+
+                            <span id="download-speed">
+
+                                0 KB/s
+
+                            </span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= CHARTS ================= -->
+
+            <section class="charts">
+
+                <div class="chart-card">
+
+                    <h3>
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        CPU Usage
+
+                    </h3>
+
+                    <canvas id="cpuChart"></canvas>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>
+
+                        <i class="fa-solid fa-chart-pie"></i>
+
+                        Memory Usage
+
+                    </h3>
+
+                    <canvas id="memoryChart"></canvas>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>
+
+                        <i class="fa-solid fa-database"></i>
+
+                        Disk Usage
+
+                    </h3>
+
+                    <canvas id="diskChart"></canvas>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>
+
+                        <i class="fa-solid fa-chart-area"></i>
+
+                        Network Activity
+
+                    </h3>
+
+                    <canvas id="networkChart"></canvas>
+
+                </div>
+
+            </section>
+
+            <!-- ================= PROCESS TABLE ================= -->
+
+            <section class="process-section">
+
+                <div class="table-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-list"></i>
+
+                        Running Processes
+
+                    </h2>
+
+                    <input
+                        type="search"
+                        id="process-search"
+                        placeholder="Search process...">
+
+                </div>
+
+                <table id="process-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>PID</th>
+                            <th>Name</th>
+                            <th>CPU %</th>
+                            <th>Memory</th>
+                            <th>State</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <!-- JavaScript will populate this -->
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <p>
+
+                <i class="fa-brands fa-python"></i>
+
+                SysWatch • Built with Python • Flask • Linux
+
+            </p>
+
+        </footer>
+
+    </div>
+
+    <!-- Charts -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

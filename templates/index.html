@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SysWatch</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <div class="logo">
+
+                <h1>SysWatch</h1>
+                <p>Linux System Monitor</p>
+
+            </div>
+
+            <div class="system-info">
+
+                <div class="info-box">
+                    <span class="label">Hostname</span>
+                    <span id="hostname">Loading...</span>
+                </div>
+
+                <div class="info-box">
+                    <span class="label">OS</span>
+                    <span id="os-name">Loading...</span>
+                </div>
+
+                <div class="info-box">
+                    <span class="label">Kernel</span>
+                    <span id="kernel-version">Loading...</span>
+                </div>
+
+                <div class="info-box">
+                    <span class="label">Uptime</span>
+                    <span id="uptime">Loading...</span>
+                </div>
+
+            </div>
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+                <span>System Online</span>
+
+            </div>
+
+        </header>
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main>
+
+            <!-- ========== SUMMARY CARDS ========== -->
+
+            <section class="cards">
+
+                <div class="card cpu-card">
+
+                    <h2>CPU</h2>
+
+                    <p class="big-number" id="cpu-percent">0%</p>
+
+                    <p>Cores: <span id="cpu-cores">0</span></p>
+                    <p>Threads: <span id="cpu-threads">0</span></p>
+
+                </div>
+
+                <div class="card memory-card">
+
+                    <h2>Memory</h2>
+
+                    <p class="big-number" id="memory-percent">0%</p>
+
+                    <p><span id="memory-used">0 GB</span> /
+                        <span id="memory-total">0 GB</span>
+                    </p>
+
+                </div>
+
+                <div class="card disk-card">
+
+                    <h2>Disk</h2>
+
+                    <p class="big-number" id="disk-percent">0%</p>
+
+                    <p><span id="disk-used">0 GB</span> /
+                        <span id="disk-total">0 GB</span>
+                    </p>
+
+                </div>
+
+                <div class="card network-card">
+
+                    <h2>Network</h2>
+
+                    <p>⬆ <span id="upload-speed">0 KB/s</span></p>
+                    <p>⬇ <span id="download-speed">0 KB/s</span></p>
+
+                </div>
+
+            </section>
+
+            <!-- ========== CHARTS ========== -->
+
+            <section class="charts">
+
+                <div class="chart-card">
+
+                    <h2>CPU Usage</h2>
+
+                    <canvas id="cpuChart"></canvas>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h2>Memory Usage</h2>
+
+                    <canvas id="memoryChart"></canvas>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h2>Disk Usage</h2>
+
+                    <canvas id="diskChart"></canvas>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h2>Network Activity</h2>
+
+                    <canvas id="networkChart"></canvas>
+
+                </div>
+
+            </section>
+
+            <!-- ========== PROCESS TABLE ========== -->
+
+            <section class="process-section">
+
+                <div class="table-header">
+
+                    <h2>Running Processes</h2>
+
+                    <input
+                        type="text"
+                        id="process-search"
+                        placeholder="Search process...">
+
+                </div>
+
+                <table id="process-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>PID</th>
+                            <th>Name</th>
+                            <th>CPU %</th>
+                            <th>Memory</th>
+                            <th>State</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <!-- JavaScript will populate this -->
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <p>
+                SysWatch • Built with Python, Flask & Linux • Live System Monitoring
+            </p>
+
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
