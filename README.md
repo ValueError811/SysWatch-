@@ -42,3 +42,50 @@ SysWatch was developed as a systems programming project to strengthen my underst
 </p>
 
 ---
+
+<p align="center>
+## ✨ Features
+
+- 🖥️ **System Overview**
+  - Displays hostname, operating system, kernel version, uptime, and system status.
+
+- ⚡ **CPU Monitoring**
+  - Tracks live CPU utilization along with the number of physical cores and logical threads.
+
+- 🧠 **Memory Monitoring**
+  - Displays memory usage with detailed statistics and interactive visualizations.
+
+- 💾 **Disk Monitoring**
+  - Reports disk usage, available storage, and utilization percentage.
+
+- 🌐 **Network Monitoring**
+  - Monitors real-time upload and download speeds across network interfaces.
+
+- 📈 **Interactive Charts**
+  - Visualizes CPU, memory, disk, and network activity using dynamic Chart.js graphs.
+
+- 🔍 **Process Explorer**
+  - Lists running processes with PID, CPU usage, memory consumption, and process state.
+
+- 🔄 **Live Updates**
+  - Continuously refreshes system metrics through asynchronous API requests without requiring page reloads.
+
+- 🐧 **Linux Native**
+  - Collects data directly from the Linux **`/proc`** and **`/sys`** virtual filesystems without relying on external monitoring libraries.
+  </p>
+  ---
+  ## 🏗️ Architecture
+
+<p align="center">
+    <img src="assets/architecture.png" alt="SysWatch Architecture" width="95%">
+</p>
+
+SysWatch follows a modular client-server architecture where the frontend communicates with a Flask backend to retrieve live system metrics. The backend gathers data through dedicated metric collection modules that read directly from the Linux **`/proc`** and **`/sys`** virtual filesystems.
+
+### Data Flow
+
+1. The browser loads the dashboard and periodically requests updated system information.
+2. Flask exposes REST API endpoints that serve the latest system metrics.
+3. The central `manager.py` coordinates all metric collection modules.
+4. Individual modules gather CPU, memory, disk, network, process, and system information directly from the Linux kernel interfaces.
+5. The collected data is returned as JSON and rendered dynamically using JavaScript and Chart.js.
